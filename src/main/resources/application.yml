@@ -1,0 +1,55 @@
+---
+micronaut:
+  application:
+    name: bardi
+  executors:
+    io:
+      n-threads: 8
+      type: fixed
+  security:
+    authentication: session
+    endpoints:
+      login:
+        enabled: true
+        path: "api/login"
+    redirect:
+      login-success: "/api/auth/success"
+      login-failure: "/api/auth/fail"
+  session:
+    http:
+      redis:
+        enabled: true
+        namespace: 'bardi:sess'
+        write-mode: background
+        enable-keyspace-events: false
+      cookie-path: /
+  #ssl:
+   # enabled: true
+   # build-self-signed: true
+  server:
+    http-to-https-redirect: true
+    netty:
+      worker:
+        threads: 8
+      childOptions:
+        autoRead: true
+redis:
+  caches:
+    main:
+      expire-after-write: 1h
+      charset: UTF-8
+      
+  uri: redis://localhost
+  io-thread-pool-size: 8
+  computation-thread-pool-size: 8
+vertx:
+  mysql:
+    client:
+      port: 3306
+      host: localhost
+      database: bardi_test
+      user: root
+      password: Vindalheim.22
+      max-size: 8
+      cache-prepared-statements: true
+...

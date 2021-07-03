@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: io.git.lamdadm
+testFramework: junit
+sourceLanguage: java
+buildTool: gradle
+features: [ annotation-api, app-name, gradle, graphql, http-client, java, java-application, jax-rs, junit, logback, netty-server, reactor, readme, redis-lettuce, security, security-annotations, security-session, shade, vertx-mysql-client, yaml ]
