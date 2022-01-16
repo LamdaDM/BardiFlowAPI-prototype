@@ -1,33 +1,12 @@
-## Micronaut 2.5.5 Documentation
+# About
+An initial prototype for BardiFlowAPI, a web service for projecting cash flow. 
+Current iteration uses MySQL for persistence, and Redis for caching.
 
-- [User Guide](https://docs.micronaut.io/2.5.5/guide/index.html)
-- [API Reference](https://docs.micronaut.io/2.5.5/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/2.5.5/guide/configurationreference.html)
-- [Micronaut Guides](https://guides.micronaut.io/index.html)
-
----
-
-## Feature http-client documentation
-
-- [Micronaut HTTP Client documentation](https://docs.micronaut.io/latest/guide/index.html#httpClient)
-
-## Feature reactor documentation
-
-- [Micronaut Reactor documentation](https://micronaut-projects.github.io/micronaut-reactor/snapshot/guide/index.html)
-
-## Feature graphql documentation
-
-- [Micronaut GraphQL documentation](https://micronaut-projects.github.io/micronaut-graphql/latest/guide/index.html)
-
-## Feature security documentation
-
-- [Micronaut Security documentation](https://micronaut-projects.github.io/micronaut-security/latest/guide/index.html)
-
-## Feature security-session documentation
-
-- [Micronaut Security Session documentation](https://micronaut-projects.github.io/micronaut-security/latest/guide/index.html#session)
-
-## Feature jax-rs documentation
-
-- [Micronaut JAX-RS support documentation](https://micronaut-projects.github.io/micronaut-jaxrs/latest/guide/index.html)
-
+Next iteration of BardiFlowAPI is planned have the following changes:
+- Write in C#, using ASP.NET Core.
+- Log to centralised logger (Trunk).
+- Password hashing provided by Trunk, which uses Argon2i.
+- Create separate standalone library for projection.
+- Rework data structures.
+- Report projections every interval over *x* intervals of *y* length, with an optional delay of *z* days (end of event line is instead *x \* y + z*).
+- Generate chronological history of events for reloading projection from any event at day *n*.
